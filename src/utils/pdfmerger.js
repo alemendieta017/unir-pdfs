@@ -1,13 +1,13 @@
 import PDFMerger from 'pdf-merger-js/browser'
 
-async function merge (files) {
+async function merge(files) {
     const merger = new PDFMerger()
 
-    for(const file of files) {
+    for (const file of files) {
         await merger.add(file)
-      }
-    
-    await merger.save()
+    }
+
+    await merger.save('pdf_unificado')
 }
 
 export default merge
