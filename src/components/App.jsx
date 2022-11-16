@@ -11,23 +11,23 @@ const App = () => {
         <li key={file.name.toString()}>{file.name}</li>
     ))
 
+    function setErrorMessage(error) {
+        const emptyFileMsg = 'Cannot read properties of undefined'
+        const notPDFFileMsg = 'No PDF header found'
+        if (error.message.includes(emptyFileMsg)) {
+            setError('Adjuntar archivos!')
+        } else if (error.message.includes(notPDFFileMsg)) {
+            setError('Solo se admiten archivos en formato PDF')
+        } else {
+            setError(error.message)
+        }
+    }
+
     const handleSubmit = (evt) => {
         evt.preventDefault()
         merge(files)
             .then((res) => setError(null))
-            .catch((e) => {
-                const emptyFileMsg =
-                    "Cannot read properties of undefined (reading 'saveAsBase64')"
-                const notPDFFileMsg =
-                    'Failed to parse PDF document (line:2250 col:518 offset=302389): No PDF header found'
-                if (e.message == emptyFileMsg) {
-                    setError('Adjuntar archivos!')
-                } else if (e.message == notPDFFileMsg) {
-                    setError('Solo se admiten archivos en formato PDF')
-                } else {
-                    setError(e.message)
-                }
-            })
+            .catch(setErrorMessage)
     }
 
     const handleChange = (evt) => {
@@ -38,10 +38,7 @@ const App = () => {
 
     return (
         <main>
-            <img
-                src={logo}
-                alt="Logo Sudameris"
-            />
+            <img src={logo} alt="Logo Sudameris" />
             {error && (
                 <div className="errorMsg">
                     <p>{error}</p>
