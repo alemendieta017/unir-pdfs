@@ -31,13 +31,14 @@ main {
     background-color: #fff;
     width: 500px;
     margin: 50px auto;
-    padding: 50px 10px;
+    padding: 20px;
     border-radius: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 main img {
     width: 320px;
+    margin : 100px 0;
 }
 
 h1 {

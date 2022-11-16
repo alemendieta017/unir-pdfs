@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import merge from '../utils/pdfmerger'
 import Styles from '../styles/styles.css'
+import logo from '../../public/logo-sudameris.svg'
 
 const App = () => {
     const [files, setFiles] = useState([])
@@ -38,7 +39,7 @@ const App = () => {
     return (
         <main>
             <img
-                src="https://i0.wp.com/logoroga.com/wp-content/uploads/2013/03/Sudameris-demo.png?w=1000&ssl=1"
+                src={logo}
                 alt="Logo Sudameris"
             />
             {error && (
