@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import merge from '../utils/pdfmerger'
 import Styles from '../styles/styles.css'
 import logo from '../../public/logo-sudameris.svg'
 
 const App = () => {
+    useEffect(() => {
+        document.title = "Unificar PDFs"
+    }, [])
+
     const [files, setFiles] = useState([])
     const [error, setError] = useState(null)
 
@@ -44,13 +48,13 @@ const App = () => {
                     <p>{error}</p>
                 </div>
             )}
-            <h1>Unificador de PDFs</h1>
+            <h1 class="title">Unificar PDFs</h1>
             <p className="main-msg">
                 Adjuntar PDFs y serán unificados en un solo archivo
             </p>
             <form action="#" onSubmit={handleSubmit}>
-                <input type="file" onChange={handleChange} multiple></input>
-                <input type="submit" value="Unificar" />
+                <input className="input-file" type="file" onChange={handleChange} multiple></input>
+                <input className="submit-btn" type="submit" value="Unificar" />
             </form>
             <ul
                 className="file-list"
