@@ -70,10 +70,17 @@ main img {
 .file-list li::before {
     content: '📄 ';
 }
+form {
+    text-align: center;
+}
+.input-file {
+    max-width: 70%;
+}
 .input-file::file-selector-button {
     padding : 5px 15px;
 }
 .submit-btn {
+    max-width: 30%;
     margin-top : 20px;
     padding : 5px 30px;
 }
