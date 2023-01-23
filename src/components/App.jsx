@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import merge from '../utils/pdfmerger'
 import Styles from '../styles/styles.css'
-import logo from '../../public/logo-sudameris.svg'
 
 const App = () => {
     useEffect(() => {
@@ -42,13 +41,12 @@ const App = () => {
 
     return (
         <main>
-            <img src={logo} alt="Logo Sudameris" />
             {error && (
                 <div className="errorMsg">
                     <p>{error}</p>
                 </div>
             )}
-            <h1 class="title">Unificar PDFs</h1>
+            <h1 className="title">Unificar PDFs</h1>
             <p className="main-msg">
                 Adjuntar PDFs y serán unificados en un solo archivo
             </p>
